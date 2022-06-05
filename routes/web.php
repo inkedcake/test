@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\CarriersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,5 +12,18 @@ use \App\Http\Controllers\CarriersController;
 |
 */
 
-Route::get('/', [CarriersController::class,'index']);
-Route::post('/', array('as' => 'find', 'uses' => '\App\Http\Controllers\CarriersController@find'));
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/tasks', function () {
+    return view('list');
+});
+Route::get('/tags', function () {
+    return view('list');
+});
+Route::get('/task/{ID}', function () {
+    return view('inner');
+});
+Route::get('/tag/{ID}', function () {
+    return view('inner');
+});
