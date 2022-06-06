@@ -14,9 +14,9 @@ class TagsController extends Controller
     }
 
     public function innerTag(int $id){
-        $tag = new Tags();
+        $tag = Tags::find($id);
 
-        return view('inner',['data'=>$tag->find($id),'title'=>'Task '.$tag->find($id)->name, 'hasDesc'=>false]);
+        return view('inner',['data'=>$tag,'subData'=>$tag->tasks(),'title'=>'Task '.$tag->find($id)->name, 'subTitle'=>'Tasks', 'hasDesc'=>false]);
     }
 
     public function createTag(){

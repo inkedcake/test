@@ -13,9 +13,8 @@ class TasksController extends Controller
     }
 
     public function innerTask(int $id){
-        $task = new Tasks();
-
-        return view('inner',['data'=>$task->find($id),'title'=>'Task '.$task->find($id)->name, 'hasDesc'=>true]);
+        $task = Tasks::find($id);
+        return view('inner',['data' => $task, 'subData' => $task->tags(), 'title' => 'Task '.$task->find($id)->name,'subTitle'=>'Tags', 'hasDesc'=>true]);
     }
 
     public function createTask(){
