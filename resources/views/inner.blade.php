@@ -1,28 +1,34 @@
+@extends('header')
+@section('title')
+    {{$title}}
+@endsection
 
-<html>
+@section('content')
+    <div class="row justify-content-center align-items-center my-auto" style="padding-top: 10%">
+        <div class="col-auto align-bottom">
+            <table class="table table-responsive table-striped table-sm ">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    @if($hasDesc)
+                        <th>Description</th>
+                    @endif
+                    <th>Created at</th>
+                </tr>
+                </thead>
+                <tbody>
 
-<head>
-    <title>test</title>
-</head>
-
-<body>
-
-</body>
-<hr>
-<a href="/tasks"><button></button></a>
-use for demo:<br>
-current address:123-0874,&nbsp;destination:175-0084<br>
-or<br>
-current address:144-0055,&nbsp;destination:124-0021<hr>
-<style type="text/css">
-    td{
-        border: 1px dotted;
-        padding:5px;
-    }
-    #map{
-        width:100%;
-        height:300px;
-    }
-
-</style>
-</html>
+                    <tr>
+                        <td>{{$data->id}}</td>
+                        <td>{{$data->name}}</td>
+                        @if($hasDesc)
+                            <td>{{$data->description}}</td>
+                        @endif
+                        <td>{{$data->created_at}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+@endsection

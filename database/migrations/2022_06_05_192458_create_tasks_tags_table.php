@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('tasks_tags', function (Blueprint $table) {
             $table->id();
-            $table->foreign('task_id')->references('id')->on('tasks');
-            $table->foreign('tag_id')->references('id')->on('tags');
+            $table->integer('task_id');
+            $table->integer('tag_id');
             $table->timestamps();
         });
     }
