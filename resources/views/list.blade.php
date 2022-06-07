@@ -4,6 +4,11 @@
 @endsection
 
 @section('content')
+    <div class="row">
+        <div class="col-md-12 text-right" style="padding-top: 10%">
+            <a href="{{route($link.'-create')}}"><button type="button" class="btn btn-primary">Create {{$link}}</button></a>
+        </div>
+    </div>
     <div class="row justify-content-center align-items-center my-auto" style="padding-top: 10%">
         <div class="col-auto align-bottom">
             <table class="table table-responsive table-striped table-sm ">

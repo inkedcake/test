@@ -40,10 +40,11 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    @if($hasDesc)
+                    @if($hasDescTasks)
                         <th>Description</th>
                     @endif
                     <th>Created at</th>
+                    <th>Link</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,10 +52,11 @@
                 <tr>
                     <td>{{$data->id}}</td>
                     <td>{{$data->name}}</td>
-                    @if($hasDesc)
+                    @if($hasDescTasks)
                         <td>{{$data->description}}</td>
                     @endif
                     <td>{{$data->created_at}}</td>
+                    <td><a href="{{route($link,['id'=>$data->id])}}">{{$subTitle}}</a></td>
                 </tr>
                 @endforeach
                 </tbody>

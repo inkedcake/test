@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tasks_tags', function (Blueprint $table) {
+        Schema::create('tags_tasks', function (Blueprint $table) {
             $table->id();
-            $table->integer('task_id');
-            $table->integer('tag_id');
+            $table->integer('tasks_id');
+            $table->integer('tags_id');
             $table->timestamps();
         });
     }

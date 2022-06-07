@@ -18,9 +18,9 @@ Route::get('/', function () {
 Route::get('/tasks', 'App\Http\Controllers\TasksController@index')->name('tasks');
 Route::get('/tags', 'App\Http\Controllers\TagsController@index')->name('tags');
 Route::get('/task/{id}', 'App\Http\Controllers\TasksController@innerTask')->name('task');
-Route::get('/tag/{id}', 'App\Http\Controllers\TagController@innerTag')->name('tag');
-Route::get('/tasks/create', function (){ return view('create_task');})->name('tasks-create');
-Route::post('/tasks/create', 'App\Http\Controllers\TasksController@create')->name('tasks-create-submit');
-Route::get('/tags/create', function (){ return view('create_tag');})->name('tags-create');
-Route::post('/tags/create', 'App\Http\Controllers\TagsController@create')->name('tags-create-submit');
+Route::get('/tag/{id}', 'App\Http\Controllers\TagsController@innerTag')->name('tag');
+Route::get('/tasks/create', 'App\Http\Controllers\TasksController@createTaskPage')->name('task-create');
+Route::post('/tasks/create', 'App\Http\Controllers\TasksController@createTask')->name('tasks-create-submit');
+Route::get('/tags/create', function (){ return view('create_tag');})->name('tag-create');
+Route::post('/tags/create', 'App\Http\Controllers\TagsController@createTag')->name('tags-create-submit');
 

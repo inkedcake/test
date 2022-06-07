@@ -15,14 +15,16 @@ class TagsController extends Controller
 
     public function innerTag(int $id){
         $tag = Tags::find($id);
-
-        return view('inner',['data'=>$tag,'subData'=>$tag->tasks(),'title'=>'Task '.$tag->find($id)->name, 'subTitle'=>'Tasks', 'hasDesc'=>false]);
+        $params = ['data'=>$tag,'subData'=>$tag->tasks()->get(),'title'=>'Tag','link'=>'task', 'subTitle'=>'Tasks', 'hasDescTasks'=>true, 'hasDesc'=>false];
+        return view('inner', $params);
     }
 
-    public function createTag(){
+    public function createTag(Request $request){
         $tag = new Tags();
-        $tag->name = \request('name');
+        $tag->name = $request->input('name');
         $tag->created_at = Carbon::now();
         $tag->save();
+
+        return redirect('tags');
     }
 }
